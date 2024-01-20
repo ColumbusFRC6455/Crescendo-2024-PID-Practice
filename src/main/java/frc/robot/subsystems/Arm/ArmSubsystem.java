@@ -1,4 +1,5 @@
 package frc.robot.subsystems.Arm;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -7,19 +8,20 @@ import edu.wpi.first.math.controller.PIDController;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
-
 public class ArmSubsystem extends SubsystemBase {
-        TalonSRX arm_motor; 
-        public PIDController armController; 
-        CANcoder coder; 
+    TalonSRX arm_motor;
+    public PIDController armController;
+    CANcoder coder;
 
-        double kP;
-        double kI;
-        double kD;
-    public ArmSubsystem() { 
-        
+    double kP;
+    double kI;
+    double kD;
+
+    public ArmSubsystem() {
+
         arm_motor = RobotContainer.arm;
-        armController = new PIDController(kP, kI, kD); // reasonable first guess would be .01 assuming input in degree, output is in percent
+        armController = new PIDController(kP, kI, kD); // reasonable first guess would be .01 assuming input in degree,
+                                                       // output is in percent
         coder = new CANcoder(0);
         Robot.initTalon(arm_motor);
 
@@ -29,7 +31,7 @@ public class ArmSubsystem extends SubsystemBase {
     }
 
     public void rotateDegrees(double angle) {
-        armController.reset(); 
+        armController.reset();
         armController.setSetpoint(angle);
         armController.calculate(angle);
     }
@@ -41,11 +43,13 @@ public class ArmSubsystem extends SubsystemBase {
         System.out.println(coder.getAbsolutePosition().getValueAsDouble());
     }
 
-   /*  public void ArmOpen() {
-        RobotContainer.solenoid.set(Value.kForward);
-    }
-
-    public void ArmClose() {
-        RobotContainer.solenoid.set(Value.kReverse);
-    }*/
+    /*
+     * public void ArmOpen() {
+     * RobotContainer.solenoid.set(Value.kForward);
+     * }
+     * 
+     * public void ArmClose() {
+     * RobotContainer.solenoid.set(Value.kReverse);
+     * }
+     */
 }

@@ -7,33 +7,30 @@ import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj.Timer;
 
 public class ShooterSubsystem extends SubsystemBase {
-    
-double speed;
-Timer time = new Timer();
+
+  double speed;
+  Timer time = new Timer();
 
   /** Creates a new ExampleSubsystem. */
   public ShooterSubsystem() {
 
-  Robot.initTalon(RobotContainer.shooter1);
-  Robot.initTalon(RobotContainer.shooter2);
-  time.restart();
+    Robot.initTalon(RobotContainer.shooter1);
+    Robot.initTalon(RobotContainer.shooter2);
+    time.restart();
   }
 
-  public void ShootDatNote(double speed){
+  public void ShootDatNote(double speed) {
     ControlMode mode = ControlMode.PercentOutput;
-    if (time.get() > 2){
-    RobotContainer.intakeBelt1.set(mode, speed);
-    RobotContainer.intakeBelt2.set(mode, -speed);
-    RobotContainer.shooter1.set(mode, speed);
-    RobotContainer.shooter2.set(mode, -speed);
+    if (time.get() > 2) {
+      RobotContainer.intakeBelt1.set(mode, speed);
+      RobotContainer.intakeBelt2.set(mode, -speed);
+      RobotContainer.shooter1.set(mode, speed);
+      RobotContainer.shooter2.set(mode, -speed);
     } else {
-        speed = 0;
+      speed = 0;
     }
-    
-    
-   
+
   }
-  
 
   @Override
   public void periodic() {

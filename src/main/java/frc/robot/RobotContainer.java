@@ -20,8 +20,6 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import frc.robot.RobotContainer;
 
-
-
 public class RobotContainer {
   private IntakeSubsystem IntakeSys = new IntakeSubsystem();
   private ShooterSubsystem ShooterSys = new ShooterSubsystem();
@@ -56,6 +54,7 @@ public class RobotContainer {
   ShooterCommand ShooterCommand1 = new ShooterCommand(ShooterSys, 0.2);
   ShooterCommand ShooterCommand2 = new ShooterCommand(ShooterSys, 0.5);
   IntakeCommand IntakeCommand = new IntakeCommand(IntakeSys, 0.2);
+
   public RobotContainer() {
     configureBindings();
     JoystickButton intakeButton = new JoystickButton(joy2, 1);
@@ -67,9 +66,8 @@ public class RobotContainer {
     ShooterButton2.onTrue(ShooterCommand2);
   }
 
-
   private void configureBindings() {
-    
+
   }
 
   /**
@@ -79,6 +77,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(null /*m_exampleSubsystem*/);
+    return Autos.exampleAuto(null /* m_exampleSubsystem */);
   }
 }
