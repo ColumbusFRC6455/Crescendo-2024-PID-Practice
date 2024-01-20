@@ -13,7 +13,7 @@ public class DriveCommand extends Command {
 
   public DriveCommand(DriveSubsystem subsystem) {
     m_subsystem = subsystem;
-    addRequirements(subsystem);
+    addRequirements(m_subsystem);
   }
 
   
