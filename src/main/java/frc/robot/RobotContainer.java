@@ -5,39 +5,27 @@
 package frc.robot;
 
 import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
+
 import frc.robot.commands.Intake.IntakeCommand;
 import frc.robot.commands.Shooter.ShooterCommand;
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Arm.ArmSubsystem;
 import frc.robot.subsystems.Intake.IntakeSubsystem;
 import frc.robot.subsystems.Shooter.ShooterSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
-import java.sql.Time;
-
+import frc.robot.commands.Arm.ArmCommands;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
-import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-import frc.robot.Constants;
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import frc.robot.RobotContainer;
 
 
 
 public class RobotContainer {
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private IntakeSubsystem IntakeSys = new IntakeSubsystem();
   private ShooterSubsystem ShooterSys = new ShooterSubsystem();
+  private ArmSubsystem armSys = new ArmSubsystem();
 
   public final static TalonSRX leftMotor0 = new TalonSRX(Constants.DRIVE_MOTORS.leftMotor0);
   public final static TalonSRX leftMotor1 = new TalonSRX(Constants.DRIVE_MOTORS.leftMotor1);
@@ -51,12 +39,19 @@ public class RobotContainer {
   public final static TalonSRX shooter1 = new TalonSRX(Constants.SHOOTER_MOTORS.shooter1);
   public final static TalonSRX shooter2 = new TalonSRX(Constants.SHOOTER_MOTORS.shooter2);
 
+  public final static TalonSRX arm = new TalonSRX(Constants.ARM_MOTORS.arm);
+
   public final static Ultrasonic colorSense = new Ultrasonic(0, 0);
 
   public final static Joystick joy1 = new Joystick(Constants.JOYSTICKS.joy1);
   public final static Joystick joy2 = new Joystick(Constants.JOYSTICKS.joy2);
 
   public final static Timer time = new Timer();
+
+  ArmCommands ArmCommand1 = new ArmCommands(armSys, Constants.ARM.Arm_0_Ang);
+  ArmCommands ArmCommand2 = new ArmCommands(armSys, Constants.ARM.Arm_90_Ang);
+  ArmCommands ArmCommand3 = new ArmCommands(armSys, Constants.ARM.Arm_Max_Ang);
+  ArmCommands ArmCommand4 = new ArmCommands(armSys, Constants.ARM.Arm_Min_Ang);
 
   ShooterCommand ShooterCommand1 = new ShooterCommand(ShooterSys, 0.2);
   ShooterCommand ShooterCommand2 = new ShooterCommand(ShooterSys, 0.5);
@@ -84,6 +79,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+    return Autos.exampleAuto(null /*m_exampleSubsystem*/);
   }
 }

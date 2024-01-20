@@ -1,12 +1,10 @@
 package frc.robot.subsystems.Shooter;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.Ultrasonic;
 
 public class ShooterSubsystem extends SubsystemBase {
     
@@ -21,7 +19,7 @@ Timer time = new Timer();
   time.restart();
   }
 
-  public void ShootDatNote(){
+  public void ShootDatNote(double speed){
     ControlMode mode = ControlMode.PercentOutput;
     if (time.get() > 2){
     RobotContainer.intakeBelt1.set(mode, speed);

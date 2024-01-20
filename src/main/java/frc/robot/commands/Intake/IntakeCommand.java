@@ -1,7 +1,7 @@
 package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.ExampleSubsystem;
+
 import frc.robot.subsystems.Intake.IntakeSubsystem;
   
     public class IntakeCommand extends Command {
@@ -21,7 +21,7 @@ import frc.robot.subsystems.Intake.IntakeSubsystem;
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-     m_subsystem.IntakeSuck();
+     m_subsystem.IntakeSuck(m_speed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

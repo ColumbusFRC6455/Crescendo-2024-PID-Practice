@@ -2,11 +2,9 @@ package frc.robot.subsystems.Intake;
 
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
-import edu.wpi.first.wpilibj.Ultrasonic;
 
 public class IntakeSubsystem extends SubsystemBase {
     
@@ -19,8 +17,7 @@ double speed;
   Robot.initTalon(RobotContainer.intakeWheels);
  
   }
-
-  public void IntakeSuck(){
+  public void IntakeSuck(double speed){
     ControlMode mode = ControlMode.PercentOutput;
     RobotContainer.colorSense.getRangeInches();
     RobotContainer.intakeBelt1.set(mode, speed);
