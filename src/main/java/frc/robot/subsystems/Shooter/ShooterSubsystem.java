@@ -16,10 +16,11 @@ public class ShooterSubsystem extends SubsystemBase {
 
     Robot.initTalon(RobotContainer.shooter1);
     Robot.initTalon(RobotContainer.shooter2);
-    time.restart();
+    
   }
 
   public void ShootDatNote(double speed) {
+    time.restart();
     ControlMode mode = ControlMode.PercentOutput;
     if (time.get() > 2) {
       RobotContainer.intakeBelt1.set(mode, speed);
