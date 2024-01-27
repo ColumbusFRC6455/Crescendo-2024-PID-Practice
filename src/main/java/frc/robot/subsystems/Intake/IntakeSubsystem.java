@@ -11,8 +11,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
   /** Creates a new ExampleSubsystem. */
   public IntakeSubsystem() {
-    Robot.initTalon(RobotContainer.intakeBelt1);
-    Robot.initTalon(RobotContainer.intakeBelt2);
+
     Robot.initTalon(RobotContainer.intakeWheels);
 
   }
@@ -20,8 +19,8 @@ public class IntakeSubsystem extends SubsystemBase {
   public void IntakeSuck(double speed) {
     ControlMode mode = ControlMode.PercentOutput;
     RobotContainer.colorSense.getRangeInches();
-    RobotContainer.intakeBelt1.set(mode, speed);
-    RobotContainer.intakeBelt2.set(mode, -speed);
+    RobotContainer.intakeBelt1.set(speed);
+    RobotContainer.intakeBelt2.set(-speed);
     RobotContainer.intakeWheels.set(mode, -speed);
 
     if (RobotContainer.colorSense.getRangeInches() < 4) {

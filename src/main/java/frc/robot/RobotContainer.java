@@ -15,12 +15,15 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Arm.ArmCommands;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import frc.robot.RobotContainer;
 
 public class RobotContainer {
+  
   private IntakeSubsystem IntakeSys = new IntakeSubsystem();
   private ShooterSubsystem ShooterSys = new ShooterSubsystem();
   private ArmSubsystem armSys = new ArmSubsystem();
@@ -30,12 +33,12 @@ public class RobotContainer {
   public final static TalonSRX rightMotor0 = new TalonSRX(Constants.DRIVE_MOTORS.rightMotor0);
   public final static TalonSRX rightMotor1 = new TalonSRX(Constants.DRIVE_MOTORS.rightMotor1);
 
-  public final static TalonSRX intakeBelt1 = new TalonSRX(Constants.INTAKE_MOTORS.intakeBelt1);
-  public final static TalonSRX intakeBelt2 = new TalonSRX(Constants.INTAKE_MOTORS.intakeBelt2);
+  public final static CANSparkMax intakeBelt1 = new CANSparkMax(Constants.INTAKE_MOTORS.intakeBelt1, MotorType.kBrushless);
+  public final static CANSparkMax intakeBelt2 = new CANSparkMax(Constants.INTAKE_MOTORS.intakeBelt2, MotorType.kBrushless);
   public final static TalonSRX intakeWheels = new TalonSRX(Constants.INTAKE_MOTORS.intakeWheels);
 
-  public final static TalonSRX shooter1 = new TalonSRX(Constants.SHOOTER_MOTORS.shooter1);
-  public final static TalonSRX shooter2 = new TalonSRX(Constants.SHOOTER_MOTORS.shooter2);
+  public final static CANSparkMax shooter1 = new CANSparkMax(Constants.SHOOTER_MOTORS.shooter1, MotorType.kBrushless);
+  public final static CANSparkMax shooter2 = new CANSparkMax(Constants.SHOOTER_MOTORS.shooter2, MotorType.kBrushless);
 
   public final static TalonSRX arm = new TalonSRX(Constants.ARM_MOTORS.arm);
 

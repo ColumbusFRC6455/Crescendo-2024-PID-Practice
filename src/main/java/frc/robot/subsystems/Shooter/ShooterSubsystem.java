@@ -1,8 +1,6 @@
 package frc.robot.subsystems.Shooter;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj.Timer;
 
@@ -14,19 +12,17 @@ public class ShooterSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public ShooterSubsystem() {
 
-    Robot.initTalon(RobotContainer.shooter1);
-    Robot.initTalon(RobotContainer.shooter2);
+    
     
   }
 
   public void ShootDatNote(double speed) {
     time.restart();
-    ControlMode mode = ControlMode.PercentOutput;
     if (time.get() > 2) {
-      RobotContainer.intakeBelt1.set(mode, speed);
-      RobotContainer.intakeBelt2.set(mode, -speed);
-      RobotContainer.shooter1.set(mode, speed);
-      RobotContainer.shooter2.set(mode, -speed);
+      RobotContainer.intakeBelt1.set(speed);
+      RobotContainer.intakeBelt2.set(-speed);
+      RobotContainer.shooter1.set(speed);
+      RobotContainer.shooter2.set(-speed);
     } else {
       speed = 0;
     }

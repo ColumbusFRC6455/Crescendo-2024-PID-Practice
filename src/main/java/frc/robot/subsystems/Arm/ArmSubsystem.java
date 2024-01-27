@@ -7,6 +7,11 @@ import com.ctre.phoenix6.hardware.CANcoder;
 import edu.wpi.first.math.controller.PIDController;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
+import com.revrobotics.SparkLimitSwitch;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkBase;
+import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.revrobotics.SparkPIDController;
 
 public class ArmSubsystem extends SubsystemBase {
     TalonSRX arm_motor;
@@ -38,8 +43,8 @@ public class ArmSubsystem extends SubsystemBase {
 
     @Override
     public void periodic() {
-        arm_motor.set(ControlMode.PercentOutput,
-                armController.calculate(coder.getAbsolutePosition().getValueAsDouble()));
+        arm_motor.set(ControlMode.PercentOutput, 
+            armController.calculate(coder.getAbsolutePosition().getValueAsDouble()));
         System.out.println(coder.getAbsolutePosition().getValueAsDouble());
     }
 
