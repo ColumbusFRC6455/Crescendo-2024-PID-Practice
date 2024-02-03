@@ -42,7 +42,7 @@ public class RobotContainer {
 
   public final static TalonSRX arm = new TalonSRX(Constants.ARM_MOTORS.arm);
 
-  public final static Ultrasonic colorSense = new Ultrasonic(0, 0);
+  public final static Ultrasonic sense = new Ultrasonic(0, 0);
 
   public final static Joystick joy1 = new Joystick(Constants.JOYSTICKS.joy1);
   public final static Joystick joy2 = new Joystick(Constants.JOYSTICKS.joy2);
