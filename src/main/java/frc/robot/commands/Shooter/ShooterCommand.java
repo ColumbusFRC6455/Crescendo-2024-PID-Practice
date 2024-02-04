@@ -7,7 +7,6 @@ import frc.robot.subsystems.Shooter.ShooterSubsystem;
 public class ShooterCommand extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private final ShooterSubsystem m_subsystem;
-  private final double m_speed;
   private Timer timer;
   /**
    * Creates a new ExampleCommand.
@@ -16,7 +15,7 @@ public class ShooterCommand extends Command {
    */
   public ShooterCommand(ShooterSubsystem subsystem, double speed) {
     m_subsystem = subsystem;
-    m_speed = speed;
+
     timer = new Timer();
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_subsystem);
