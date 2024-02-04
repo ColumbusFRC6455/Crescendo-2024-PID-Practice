@@ -7,12 +7,10 @@ import frc.robot.subsystems.Intake.IntakeSubsystem;
 public class IntakeCommand extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private IntakeSubsystem m_subsystem;
-  private double m_speed;
-
+  
   public IntakeCommand(IntakeSubsystem subsystem, double speed) {
     m_subsystem = subsystem;
-    m_speed = speed;
-
+    
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_subsystem);
   }
@@ -20,7 +18,7 @@ public class IntakeCommand extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_subsystem.IntakeSuck(m_speed);
+    m_subsystem.IntakeSuck();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -39,6 +37,6 @@ public class IntakeCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return   ;
+    return m_subsystem.getRange() < 4;
   }
 }

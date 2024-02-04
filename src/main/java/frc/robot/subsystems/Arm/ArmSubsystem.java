@@ -7,11 +7,7 @@ import com.ctre.phoenix6.hardware.CANcoder;
 import edu.wpi.first.math.controller.PIDController;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
-import com.revrobotics.SparkLimitSwitch;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkBase;
-import com.revrobotics.CANSparkLowLevel.MotorType;
-import com.revrobotics.SparkPIDController;
+
 
 public class ArmSubsystem extends SubsystemBase {
     TalonSRX arm_motor;

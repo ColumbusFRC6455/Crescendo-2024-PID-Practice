@@ -27,7 +27,8 @@ public final class Constants {
   public static class INTAKE_MOTORS {
     public static final int intakeBelt1 = 5;
     public static final int intakeBelt2 = 6;
-    public static final int intakeWheels = 7;
+    public static final int intakeWheel1 = 7;
+    public static final int intakeWheel2 = 11;
   }
 
   public static class SHOOTER_MOTORS {
@@ -39,7 +40,22 @@ public final class Constants {
     public static final int arm = 10;
   }
 
-  public static class ARM {
+  public static class JOYSTICKS {
+    public static final int joy1 = 0;
+    public static final int joy2 = 1;
+  }
+
+
+
+    public static class INTAKE{
+      public static final double speed = .2;
+    }
+
+    public static class SHOOTER{
+      public static final double speed = .8;
+    }
+
+    public static class ARM {
     public static final int Arm_0_Ang = 0;
     public static final int Arm_90_Ang = 0;
     public static final int Arm_Max_Ang = 0;
@@ -49,8 +65,4 @@ public final class Constants {
     // Once found real angle subract or add to make 90, 180 or 0
   }
 
-  public static class JOYSTICKS {
-    public static final int joy1 = 0;
-    public static final int joy2 = 1;
-  }
 }

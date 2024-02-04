@@ -16,17 +16,21 @@ public class ShooterSubsystem extends SubsystemBase {
     
   }
 
-  public void ShootDatNote(double speed) {
-    time.restart();
-    if (time.get() > 2) {
-      RobotContainer.intakeBelt1.set(speed);
-      RobotContainer.intakeBelt2.set(-speed);
+  public void ShootDatNote() {
+
       RobotContainer.shooter1.set(speed);
       RobotContainer.shooter2.set(-speed);
-    } else {
-      speed = 0;
-    }
-
+    
+  }
+  public void ShootDatNote2(){
+      RobotContainer.intakeBelt1.set(speed);
+      RobotContainer.intakeBelt2.set(-speed);
+  }
+  public void StopShooting(){
+    RobotContainer.intakeBelt1.set(0);
+      RobotContainer.intakeBelt2.set(0);
+      RobotContainer.shooter1.set(0);
+      RobotContainer.shooter2.set(0);
   }
 
   @Override

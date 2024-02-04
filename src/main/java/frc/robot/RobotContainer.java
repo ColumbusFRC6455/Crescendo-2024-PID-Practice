@@ -12,6 +12,7 @@ import frc.robot.subsystems.Arm.ArmSubsystem;
 import frc.robot.subsystems.Intake.IntakeSubsystem;
 import frc.robot.subsystems.Shooter.ShooterSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Arm.ArmCommands;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -35,7 +36,8 @@ public class RobotContainer {
 
   public final static CANSparkMax intakeBelt1 = new CANSparkMax(Constants.INTAKE_MOTORS.intakeBelt1, MotorType.kBrushless);
   public final static CANSparkMax intakeBelt2 = new CANSparkMax(Constants.INTAKE_MOTORS.intakeBelt2, MotorType.kBrushless);
-  public final static TalonSRX intakeWheels = new TalonSRX(Constants.INTAKE_MOTORS.intakeWheels);
+  public final static TalonSRX intakeWheel1 = new TalonSRX(Constants.INTAKE_MOTORS.intakeWheel1);
+  public final static TalonSRX intakeWheel2 = new TalonSRX(Constants.INTAKE_MOTORS.intakeWheel2);
 
   public final static CANSparkMax shooter1 = new CANSparkMax(Constants.SHOOTER_MOTORS.shooter1, MotorType.kBrushless);
   public final static CANSparkMax shooter2 = new CANSparkMax(Constants.SHOOTER_MOTORS.shooter2, MotorType.kBrushless);
@@ -57,14 +59,17 @@ public class RobotContainer {
   ShooterCommand ShooterCommand1 = new ShooterCommand(ShooterSys, 0.2);
   ShooterCommand ShooterCommand2 = new ShooterCommand(ShooterSys, 0.5);
   IntakeCommand IntakeCommand = new IntakeCommand(IntakeSys, 0.2);
+  IntakeCommand IntakeCommand2 = new IntakeCommand(IntakeSys, 0.2);
 
   public RobotContainer() {
     configureBindings();
     JoystickButton intakeButton = new JoystickButton(joy2, 1);
+    JoystickButton intakeButton2 = new JoystickButton(joy2, 4);
     JoystickButton ShooterButton1 = new JoystickButton(joy2, 2);
     JoystickButton ShooterButton2 = new JoystickButton(joy2, 3);
 
     intakeButton.onTrue(IntakeCommand);
+    intakeButton2.onTrue(Commands.run(()-> IntakeCommand.cancel()));
     ShooterButton1.onTrue(ShooterCommand1);
     ShooterButton2.onTrue(ShooterCommand2);
   }
