@@ -2,6 +2,7 @@ package frc.robot.subsystems.Auto;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix6.hardware.CANcoder;
 
@@ -36,8 +37,8 @@ public class Auto extends SubsystemBase {
       EncLeft = RobotContainer.EncLeft;
       EncRight = RobotContainer.EncRight;
 
-      EncLeft.setDistancePerPulse(0.002);
-      EncRight.setDistancePerPulse(0.002);
+      EncLeft.setDistancePerPulse(0.009);
+      EncRight.setDistancePerPulse(0.009);
 
         TalonSRX right = RobotContainer.rightMotor0;
         TalonSRX left = RobotContainer.leftMotor0;
@@ -56,8 +57,14 @@ public class Auto extends SubsystemBase {
         Robot.initAutoTalon(left);
     }
 
-    public void driveStraight(){
-      
+
+    
+    public void mySetSetpoint(double setpoint){
+      resetEncoders();
+      encLeftController.setSetpoint(-setpoint);
+      encRightController.setSetpoint(setpoint);
+      encLeftController.calculate(-setpoint);
+      encRightController.calculate(setpoint);
     }
 
     public static void resetEncoders() {
@@ -66,23 +73,12 @@ public class Auto extends SubsystemBase {
     }
 
 
-  public Command exampleMethodCommand() {
-    
-    return runOnce(
-        () -> {
-       
-        });
-  }
-
-  
-  public boolean exampleCondition() {
-   
-    return false;
-  }
-
   @Override
   public void periodic() {
-   
+   right.set(ControlMode.PercentOutput, 
+            encRightController.calculate(EncRight.getDistance()));
+            left.set(ControlMode.PercentOutput, 
+            encLeftController.calculate(EncLeft.getDistance()));
   }
 
   @Override

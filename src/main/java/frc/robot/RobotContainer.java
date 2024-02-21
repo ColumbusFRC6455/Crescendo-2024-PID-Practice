@@ -68,7 +68,7 @@ public class RobotContainer {
 
   public RobotContainer() {
     configureBindings();
-    JoystickButton intakeButton = new JoystickButton(joy2, 1);
+    JoystickButton intakeButton = new JoystickButton(joy2, 5);
     JoystickButton intakeButton2 = new JoystickButton(joy2, 4);
     JoystickButton ShooterButton1 = new JoystickButton(joy2, 2);
     JoystickButton ShooterButton2 = new JoystickButton(joy2, 3);
