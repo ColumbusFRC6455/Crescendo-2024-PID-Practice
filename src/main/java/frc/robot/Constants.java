@@ -55,6 +55,13 @@ public final class Constants {
       public static final double speed = .8;
     }
 
+    public static class Encoder{
+      public static final int EncRightA = 0;
+      public static final int EncRightB = 1;
+      public static final int EncLeftA = 2;
+      public static final int EncLeftB = 3;
+    }
+
     public static class ARM {
     public static final int Arm_0_Ang = 0;
     public static final int Arm_90_Ang = 0;

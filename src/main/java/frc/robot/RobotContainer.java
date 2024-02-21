@@ -18,6 +18,8 @@ import frc.robot.commands.Arm.ArmCommands;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Ultrasonic;
@@ -45,6 +47,9 @@ public class RobotContainer {
   public final static TalonSRX arm = new TalonSRX(Constants.ARM_MOTORS.arm);
 
   public final static Ultrasonic sense = new Ultrasonic(0, 0);
+
+  public final static Encoder EncRight = new Encoder(Constants.Encoder.EncRightA, Constants.Encoder.EncRightB);
+  public final static Encoder EncLeft = new Encoder(Constants.Encoder.EncLeftA , Constants.Encoder.EncLeftB );
 
   public final static Joystick joy1 = new Joystick(Constants.JOYSTICKS.joy1);
   public final static Joystick joy2 = new Joystick(Constants.JOYSTICKS.joy2);

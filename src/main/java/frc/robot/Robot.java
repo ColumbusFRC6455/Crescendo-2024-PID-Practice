@@ -138,4 +138,11 @@ public class Robot extends TimedRobot {
     motor.configNominalOutputForward(0.0, 0);
     motor.configNominalOutputReverse(0.0, 0);
   }
+  public static void initAutoTalon(TalonSRX motor) {
+    motor.setNeutralMode(NeutralMode.Brake);
+    motor.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
+    motor.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, 0);
+    motor.configNominalOutputForward(0.0, 0);
+    motor.configNominalOutputReverse(0.0, 0);
+  }
 }
