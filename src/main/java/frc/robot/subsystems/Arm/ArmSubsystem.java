@@ -3,6 +3,7 @@ package frc.robot.subsystems.Arm;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix6.hardware.CANcoder;
 import edu.wpi.first.math.controller.PIDController;
 import frc.robot.Robot;
@@ -10,7 +11,7 @@ import frc.robot.RobotContainer;
 
 
 public class ArmSubsystem extends SubsystemBase {
-    TalonSRX arm_motor;
+    WPI_TalonSRX arm_motor;
     public PIDController armController;
     CANcoder coder;
 

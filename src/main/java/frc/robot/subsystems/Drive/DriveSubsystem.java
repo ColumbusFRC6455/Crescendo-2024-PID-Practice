@@ -19,8 +19,7 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public static void arcadeDrive(ControlMode mode, double y, double x) {
-    RobotContainer.leftMotor0.set(mode, y);
-    RobotContainer.rightMotor0.set(mode, x);
+    RobotContainer.drive.arcadeDrive(-x, -y);
   }
 
   @Override

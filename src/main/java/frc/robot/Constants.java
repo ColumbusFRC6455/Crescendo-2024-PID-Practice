@@ -18,22 +18,22 @@ package frc.robot;
  */
 public final class Constants {
   public static class DRIVE_MOTORS {
-    public static final int leftMotor0 = 1;
-    public static final int leftMotor1 = 3;
-    public static final int rightMotor0 = 2;
-    public static final int rightMotor1 = 4;
+    public static final int leftMotor0 = 0;
+    public static final int leftMotor1 = 2;
+    public static final int rightMotor0 = 1;
+    public static final int rightMotor1 = 3;
   }
 
   public static class INTAKE_MOTORS {
+    public static final int intakeBelt0 = 4;
     public static final int intakeBelt1 = 5;
-    public static final int intakeBelt2 = 6;
+    public static final int intakeWheel0 = 6;
     public static final int intakeWheel1 = 7;
-    public static final int intakeWheel2 = 11;
   }
 
   public static class SHOOTER_MOTORS {
-    public static final int shooter1 = 8;
-    public static final int shooter2 = 9;
+    public static final int shooter0 = 8;
+    public static final int shooter1 = 9;
   }
 
   public static class ARM_MOTORS {
@@ -48,7 +48,7 @@ public final class Constants {
 
 
     public static class INTAKE{
-      public static final double speed = .2;
+      public static final double speed = .8;
     }
 
     public static class SHOOTER{
