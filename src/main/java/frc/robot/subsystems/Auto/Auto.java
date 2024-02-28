@@ -63,8 +63,6 @@ public class Auto extends SubsystemBase {
       resetEncoders();
       encLeftController.setSetpoint(-setpoint);
       encRightController.setSetpoint(setpoint);
-      encLeftController.calculate(-setpoint);
-      encRightController.calculate(setpoint);
     }
 
     public static void resetEncoders() {
@@ -76,9 +74,9 @@ public class Auto extends SubsystemBase {
   @Override
   public void periodic() {
    right.set(ControlMode.PercentOutput, 
-            encRightController.calculate(EncRight.getDistance()));
-            left.set(ControlMode.PercentOutput, 
-            encLeftController.calculate(EncLeft.getDistance()));
+        encRightController.calculate(EncRight.getDistance()));
+    left.set(ControlMode.PercentOutput, 
+        encLeftController.calculate(EncLeft.getDistance()));
   }
 
   @Override
