@@ -49,7 +49,7 @@ public class RobotContainer {
 
   public final static DifferentialDrive drive = new DifferentialDrive(leftMotor0, rightMotor0);
 
-  //public final static Ultrasonic sense = new Ultrasonic(0, 0);
+  public final static Ultrasonic sense = new Ultrasonic(0, 0);
 
   public final static Encoder EncRight = new Encoder(Constants.Encoder.EncRightA, Constants.Encoder.EncRightB);
   public final static Encoder EncLeft = new Encoder(Constants.Encoder.EncLeftA , Constants.Encoder.EncLeftB );

@@ -4,17 +4,13 @@ import frc.robot.RobotContainer;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix6.hardware.CANcoder;
-
 import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.math.kinematics.Odometry;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Auto extends SubsystemBase {
-  public PIDController encRightController;
-  public PIDController encLeftController;
+  public static PIDController encRightController;
+  public static PIDController encLeftController;
   TalonSRX right;
   TalonSRX left;
 
@@ -66,8 +62,8 @@ public class Auto extends SubsystemBase {
     }
 
     public static void resetEncoders() {
-      EncLeft.reset();
-      EncRight.reset();
+      encLeftController.reset();
+      encRightController.reset();
     }
 
 

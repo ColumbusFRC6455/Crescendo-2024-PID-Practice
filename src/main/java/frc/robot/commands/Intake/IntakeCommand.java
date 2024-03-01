@@ -9,6 +9,7 @@ public class IntakeCommand extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private IntakeSubsystem m_subsystem;
   private Timer timer;
+  private double time = Timer.getFPGATimestamp();
   public IntakeCommand(IntakeSubsystem subsystem, double speed) {
     m_subsystem = subsystem;
     
@@ -41,6 +42,6 @@ public class IntakeCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false /* m_subsystem.getRange() < 4 */;
+    return m_subsystem.getRange() < 4 || time > 3 ;
   }
 }

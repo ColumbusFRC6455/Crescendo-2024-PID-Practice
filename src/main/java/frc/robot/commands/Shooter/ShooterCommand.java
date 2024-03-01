@@ -8,6 +8,7 @@ public class ShooterCommand extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private final ShooterSubsystem m_subsystem;
   private Timer timer;
+  double time = Timer.getFPGATimestamp();
   /**
    * Creates a new ExampleCommand.
    *
@@ -17,6 +18,7 @@ public class ShooterCommand extends Command {
     m_subsystem = subsystem;
 
     timer = new Timer();
+    
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_subsystem);
   }
@@ -46,6 +48,6 @@ public class ShooterCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return timer.get() > 4;
+    return time > 4;
   }
 }

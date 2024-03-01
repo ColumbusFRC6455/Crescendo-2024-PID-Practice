@@ -16,8 +16,8 @@ public class IntakeSubsystem extends SubsystemBase {
   }
 
   public void IntakeSuck() {
-   // RobotContainer.intakeBelt1.set(Constants.INTAKE.speed);
-   // RobotContainer.intakeBelt2.set(Constants.INTAKE.speed);
+    RobotContainer.intakeBelt1.set(Constants.INTAKE.speed);
+    RobotContainer.intakeBelt2.set(Constants.INTAKE.speed);
     RobotContainer.intakeWheel1.set(ControlMode.PercentOutput, Constants.INTAKE.speed);
     RobotContainer.intakeWheel2.set(ControlMode.PercentOutput, Constants.INTAKE.speed);
   }
@@ -29,9 +29,9 @@ public class IntakeSubsystem extends SubsystemBase {
     RobotContainer.intakeWheel2.set(ControlMode.PercentOutput, 0);
   }
 
-  /*public double getRange(){
+  public double getRange(){
     return RobotContainer.sense.getRangeInches();
-  }*/
+  }
 
 
   @Override
