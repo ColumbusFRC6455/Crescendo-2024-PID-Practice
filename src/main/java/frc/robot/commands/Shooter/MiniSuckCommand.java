@@ -1,19 +1,24 @@
-package frc.robot.commands.Intake;
+package frc.robot.commands.Shooter;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.Shooter.ShooterSubsystem;
 
-import frc.robot.subsystems.Intake.IntakeSubsystem;
-
-public class IntakeCommand extends Command {
+public class MiniSuckCommand extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
-  private IntakeSubsystem m_subsystem;
+  private final ShooterSubsystem m_subsystem;
   private Timer timer;
-  private double time = Timer.getFPGATimestamp();
-  public IntakeCommand(IntakeSubsystem subsystem) {
+  double time = Timer.getFPGATimestamp();
+  /**
+   * Creates a new ExampleCommand.
+   *
+   * @param subsystem The subsystem used by this command.
+   */
+  public MiniSuckCommand(ShooterSubsystem subsystem) {
     m_subsystem = subsystem;
-    
+
     timer = new Timer();
+    
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_subsystem);
   }
@@ -21,27 +26,26 @@ public class IntakeCommand extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_subsystem.IntakeSuck();
+    m_subsystem.miniSuck();
+    timer.restart();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
+     
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_subsystem.IntakeStop();
+    m_subsystem.StopShooting();
     
   }
-  
-
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return time > 5;
+    return time > .2;
   }
 }

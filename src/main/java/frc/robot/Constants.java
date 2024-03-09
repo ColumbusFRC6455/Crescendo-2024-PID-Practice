@@ -48,11 +48,15 @@ public final class Constants {
 
 
     public static class INTAKE{
-      public static final double speed = .8;
+      public static final double wheelsSpeed = .8;
+      public static final double beltSpeed = .8;
     }
 
     public static class SHOOTER{
-      public static final double speed = .8;
+      public static final double shootSpeed1 = .8;
+      public static final double shootSpeed2 = .5;
+      public static final double beltSpeed = .8;
+      public static final double revBeltSpeed = 0.2;
     }
 
     public static class Encoder{

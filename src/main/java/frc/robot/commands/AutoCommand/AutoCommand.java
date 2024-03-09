@@ -9,17 +9,18 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class AutoCommand extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Auto m_subsystem;
+    private final double m_distance;
 
-
-  public AutoCommand(Auto subsystem) {
+  public AutoCommand(Auto subsystem, double distance) {
     m_subsystem = subsystem;
+    m_distance = distance;
     addRequirements(m_subsystem);
   }
 
   @Override
   public void initialize() {
-    m_subsystem.encLeftController.setSetpoint(0);
-    m_subsystem.encRightController.setSetpoint(0);
+    Auto.encLeftController.setSetpoint(m_distance);
+    Auto.encRightController.setSetpoint(m_distance);
 
   }
 
@@ -31,6 +32,6 @@ public class AutoCommand extends Command {
 
   @Override
   public boolean isFinished() {
-    return m_subsystem.encLeftController.atSetpoint() && m_subsystem.encRightController.atSetpoint();
+    return Auto.encLeftController.atSetpoint() && Auto.encRightController.atSetpoint();
   }
 }

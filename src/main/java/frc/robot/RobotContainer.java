@@ -4,9 +4,8 @@
 
 package frc.robot;
 
-import frc.robot.commands.Autos;
-
 import frc.robot.commands.Intake.IntakeCommand;
+import frc.robot.commands.Shooter.MiniSuckCommand;
 import frc.robot.commands.Shooter.ShooterCommand;
 import frc.robot.subsystems.Arm.ArmSubsystem;
 import frc.robot.subsystems.Intake.IntakeSubsystem;
@@ -29,7 +28,7 @@ import frc.robot.RobotContainer;
 public class RobotContainer {
   
   private IntakeSubsystem IntakeSys = new IntakeSubsystem();
-  private ShooterSubsystem ShooterSys = new ShooterSubsystem();
+  private static ShooterSubsystem ShooterSys = new ShooterSubsystem();
   private ArmSubsystem armSys = new ArmSubsystem();
 
   public final static WPI_TalonSRX leftMotor0 = new WPI_TalonSRX(Constants.DRIVE_MOTORS.leftMotor0);
@@ -49,8 +48,6 @@ public class RobotContainer {
 
   public final static DifferentialDrive drive = new DifferentialDrive(leftMotor0, rightMotor0);
 
-  public final static Ultrasonic sense = new Ultrasonic(0, 0);
-
   public final static Encoder EncRight = new Encoder(Constants.Encoder.EncRightA, Constants.Encoder.EncRightB);
   public final static Encoder EncLeft = new Encoder(Constants.Encoder.EncLeftA , Constants.Encoder.EncLeftB );
 
@@ -64,19 +61,19 @@ public class RobotContainer {
   ArmCommands ArmCommand3 = new ArmCommands(armSys, Constants.ARM.Arm_Max_Ang);
   ArmCommands ArmCommand4 = new ArmCommands(armSys, Constants.ARM.Arm_Min_Ang);
 
-  ShooterCommand ShooterCommand1 = new ShooterCommand(ShooterSys, 0.2);
-  ShooterCommand ShooterCommand2 = new ShooterCommand(ShooterSys, 0.5);
-  IntakeCommand IntakeCommand = new IntakeCommand(IntakeSys, 0.2);
-  IntakeCommand IntakeCommand2 = new IntakeCommand(IntakeSys, 0.2);
+  ShooterCommand ShooterCommand1 = new ShooterCommand(ShooterSys, Constants.SHOOTER.shootSpeed1);
+  ShooterCommand ShooterCommand2 = new ShooterCommand(ShooterSys, Constants.SHOOTER.shootSpeed2);
+  IntakeCommand IntakeCommand = new IntakeCommand(IntakeSys);
+  MiniSuckCommand miniSuckCommand = new MiniSuckCommand(ShooterSys);
 
   public RobotContainer() {
     configureBindings();
     JoystickButton intakeButton = new JoystickButton(joy2, 11);
-    JoystickButton intakeButton2 = new JoystickButton(joy2, 12);
     JoystickButton ShooterButton1 = new JoystickButton(joy2, 2);
     JoystickButton ShooterButton2 = new JoystickButton(joy2, 3);
-    intakeButton.onTrue(IntakeCommand);
-    intakeButton2.onTrue(Commands.run(()-> IntakeCommand.cancel()));
+    JoystickButton miniSuckButton = new JoystickButton(joy2, 4);
+    intakeButton.whileTrue(IntakeCommand);
+    miniSuckButton.whileTrue(miniSuckCommand);
     ShooterButton1.onTrue(ShooterCommand1);
     ShooterButton2.onTrue(ShooterCommand2);
   }
@@ -92,6 +89,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return null; //Autos.exampleAuto(null /* m_exampleSubsystem */);
+    return null;
   }
 }

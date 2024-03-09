@@ -16,8 +16,6 @@ public class ShooterCommand extends Command {
    */
   public ShooterCommand(ShooterSubsystem subsystem, double speed) {
     m_subsystem = subsystem;
-
-    timer = new Timer();
     
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_subsystem);
@@ -26,15 +24,15 @@ public class ShooterCommand extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_subsystem.ShootDatNote();
     timer.restart();
+    m_subsystem.ShootDatNote();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-     if (timer.get() > 1){
-       m_subsystem.ShootDatNote2();
+     if (time > .5){
+  m_subsystem.ShootDatNote2();
      }
   }
 
