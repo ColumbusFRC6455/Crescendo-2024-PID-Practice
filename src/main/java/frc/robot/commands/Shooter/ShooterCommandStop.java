@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Shooter.ShooterSubsystem;
 
-public class Shoot2 extends Command {
+public class ShooterCommandStop extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private final ShooterSubsystem m_subsystem;
   private Timer timer;
@@ -15,7 +15,7 @@ public class Shoot2 extends Command {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public Shoot2(ShooterSubsystem subsystem) {
+  public ShooterCommandStop(ShooterSubsystem subsystem) {
     m_subsystem = subsystem;
     
     // Use addRequirements() here to declare subsystem dependencies.
@@ -26,7 +26,7 @@ public class Shoot2 extends Command {
   @Override
   public void initialize() {
 
-    m_subsystem.ShootDatNote2();
+    m_subsystem.StopShooting();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
