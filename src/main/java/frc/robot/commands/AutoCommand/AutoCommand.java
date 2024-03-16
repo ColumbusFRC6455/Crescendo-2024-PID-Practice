@@ -7,8 +7,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
 public class AutoCommand extends Command {
-  //@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
- /*private final Auto m_subsystem;
+@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
+ private final Auto m_subsystem;
     private final double m_distance;
 
   public AutoCommand(Auto subsystem, double distance) {
@@ -19,6 +19,8 @@ public class AutoCommand extends Command {
 
   @Override
   public void initialize() {
+    Auto.encLeftController.reset();
+    Auto.encRightController.reset();
     Auto.encLeftController.setSetpoint(m_distance);
     Auto.encRightController.setSetpoint(m_distance);
 
@@ -33,5 +35,5 @@ public class AutoCommand extends Command {
   @Override
   public boolean isFinished() {
     return Auto.encLeftController.atSetpoint() && Auto.encRightController.atSetpoint();
-  }*/
+  }
 }

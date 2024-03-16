@@ -13,13 +13,12 @@ public class DriveSubsystem extends SubsystemBase {
     Robot.initTalon(RobotContainer.rightMotor0);
     Robot.initTalon(RobotContainer.rightMotor1);
 
-    RobotContainer.leftMotor1.follow(RobotContainer.leftMotor0);
-    RobotContainer.rightMotor1.follow(RobotContainer.rightMotor0);
-    RobotContainer.time.restart();
+    //RobotContainer.leftMotor0.follow(RobotContainer.leftMotor1);
+   // RobotContainer.rightMotor0.follow(RobotContainer.rightMotor1);
   }
 
   public static void arcadeDrive(ControlMode mode, double y, double x) {
-    RobotContainer.drive.arcadeDrive(y, x);
+    RobotContainer.drive.arcadeDrive(x, -y);
   }
 
   @Override

@@ -1,4 +1,5 @@
 package frc.robot.subsystems.Auto;
+import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
@@ -9,7 +10,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Auto extends SubsystemBase {
-  /*public static PIDController encRightController;
+  public static PIDController encRightController;
   public static PIDController encLeftController;
   TalonSRX right;
   TalonSRX left;
@@ -18,14 +19,7 @@ public class Auto extends SubsystemBase {
   static Encoder EncRight;
   
 
-    double RightkP;
-    double RightkI;
-    double RightkD;
-
-    double LeftkP;
-    double LeftkI;
-    double LeftkD;
-
+    
     double rightTravelled;
     double leftTravelled;
 
@@ -36,11 +30,11 @@ public class Auto extends SubsystemBase {
       EncLeft.setDistancePerPulse(0.009);
       EncRight.setDistancePerPulse(0.009);
 
-        TalonSRX right = RobotContainer.rightMotor0;
-        TalonSRX left = RobotContainer.leftMotor0;
+      right = RobotContainer.rightMotor0;
+      left = RobotContainer.leftMotor0;
         
-        encRightController = new PIDController(RightkP, RightkI, RightkD);
-        encLeftController = new PIDController(LeftkP, LeftkI, LeftkD); // reasonable first guess would be .01 assuming input in degree,
+        encRightController = new PIDController(Constants.PIDDRIVE.RightkP, Constants.PIDDRIVE.RightkI, Constants.PIDDRIVE.RightkD);
+        encLeftController = new PIDController(Constants.PIDDRIVE.LeftkP, Constants.PIDDRIVE.LeftkI, Constants.PIDDRIVE.LeftkD); // reasonable first guess would be .01 assuming input in degree,
                                                        // output is in percent
 
         encLeftController.setIntegratorRange(-180.0f, 180.0f);
@@ -77,6 +71,6 @@ public class Auto extends SubsystemBase {
 
   @Override
   public void simulationPeriodic() {
-  }*/
+  }
   }
 

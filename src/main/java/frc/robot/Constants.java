@@ -53,29 +53,31 @@ public final class Constants {
     }
 
     public static class SHOOTER{
-      public static final double speakShootSpeed1 = 2;
+      public static final double speakShootSpeed1 = 1;
 
-      public static final double ampShootSpeed1 = .5;
+      public static final double ampShootSpeed1 = .45;
       public static final double ampShootSpeed2 = .5;
-      public static final double beltSpeed = .8;
+      public static final double beltSpeed = .5;
       public static final double revBeltSpeed = 0.2;
     }
 
     public static class Encoder{
-      public static final int EncRightA = 0;
-      public static final int EncRightB = 1;
-      public static final int EncLeftA = 2;
-      public static final int EncLeftB = 3;
+      public static final int EncRightA = 2;
+      public static final int EncRightB = 3;
+      public static final int EncLeftA = 0;
+      public static final int EncLeftB = 1;
+    }
+    public static class PIDDRIVE {
+    public static final double RightkP = 5;
+    public static final double RightkI = 0;
+    public static final double RightkD = 0;
+
+    public static final double LeftkP = 5; 
+   public static final  double LeftkI = 0;
+    public static final double LeftkD = 0;
+
     }
 
-    public static class ARM {
-    public static final int Arm_0_Ang = 0;
-    public static final int Arm_90_Ang = 0;
-    public static final int Arm_Max_Ang = 0;
-    public static final int Arm_Min_Ang = 0;
-    public static final int Arm_Test_Ang = 0;
 
-    // Once found real angle subract or add to make 90, 180 or 0
-  }
 
 }
