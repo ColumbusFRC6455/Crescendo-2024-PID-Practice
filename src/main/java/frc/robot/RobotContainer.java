@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.commands.Intake.IntakeCommand;
+import frc.robot.commands.Shooter.AmpShootCommand;
 import frc.robot.commands.Shooter.MiniSuckCommand;
 import frc.robot.commands.Shooter.ShooterCommand;
 import frc.robot.commands.Shooter.ShooterCommandStop;
@@ -63,8 +64,8 @@ public class RobotContainer {
   ArmCommands ArmCommand3 = new ArmCommands(armSys, Constants.ARM.Arm_Max_Ang);
   ArmCommands ArmCommand4 = new ArmCommands(armSys, Constants.ARM.Arm_Min_Ang);
 
-  ShooterCommand ShooterCommand1 = new ShooterCommand(ShooterSys, Constants.SHOOTER.shootSpeed1);
-  ShooterCommand ShooterCommand2 = new ShooterCommand(ShooterSys, Constants.SHOOTER.shootSpeed2);
+  ShooterCommand ShooterCommand1 = new ShooterCommand(ShooterSys);
+  AmpShootCommand ShooterCommand2 = new AmpShootCommand(ShooterSys);
   ShooterCommandStop ShootCommand3 = new ShooterCommandStop(ShooterSys);
   IntakeCommand IntakeCommand = new IntakeCommand(IntakeSys);
   MiniSuckCommand miniSuckCommand = new MiniSuckCommand(ShooterSys);

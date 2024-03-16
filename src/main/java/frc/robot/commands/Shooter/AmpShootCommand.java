@@ -4,10 +4,9 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Shooter.ShooterSubsystem;
 
-public class ShooterCommand extends Command {
+public class AmpShootCommand extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private final ShooterSubsystem m_subsystem;
-  private Timer timer;
   double time = Timer.getFPGATimestamp();
   double m_speed;
   /**
@@ -15,7 +14,7 @@ public class ShooterCommand extends Command {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ShooterCommand(ShooterSubsystem subsystem) {
+  public AmpShootCommand(ShooterSubsystem subsystem) {
     m_subsystem = subsystem;
     
     
@@ -27,7 +26,7 @@ public class ShooterCommand extends Command {
   @Override
   public void initialize() {
 
-    m_subsystem.ShootDatNote();
+    m_subsystem.ShootDatNote3();
     m_subsystem.ShootDatNote2();
   }
 
