@@ -59,7 +59,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
-    autoStep = 1;
+   /*  autoStep = 1;
     if (autoStep == 1) {
       new ShooterCommand(ShooterSys, Constants.SHOOTER.shootSpeed1);
       autoStep = 2; 
@@ -75,7 +75,7 @@ public class Robot extends TimedRobot {
       autoStep = 5;
     } else if (autoStep == 5){
       new AutoCommand(auto, -10);
-    }
+    }*/
   }
   
 

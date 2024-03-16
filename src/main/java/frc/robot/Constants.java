@@ -53,7 +53,7 @@ public final class Constants {
     }
 
     public static class SHOOTER{
-      public static final double shootSpeed1 = .8;
+      public static final double shootSpeed1 = 1.5;
       public static final double shootSpeed2 = .5;
       public static final double beltSpeed = .8;
       public static final double revBeltSpeed = 0.2;

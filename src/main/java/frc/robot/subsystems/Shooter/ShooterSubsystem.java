@@ -6,7 +6,7 @@ import frc.robot.RobotContainer;
 import edu.wpi.first.wpilibj.Timer;
 
 public class ShooterSubsystem extends SubsystemBase {
-double speed;
+
   Timer time = new Timer();
 
   /** Creates a new ExampleSubsystem. */
@@ -20,13 +20,14 @@ double speed;
       RobotContainer.intakeBelt2.set(-Constants.SHOOTER.revBeltSpeed);
   }
 
-  public void ShootDatNote() {
+  public void ShootDatNote(double speed) {
       RobotContainer.shooter1.set(speed);
       RobotContainer.shooter2.set(-speed);
+      
   }
   public void ShootDatNote2(){
-    RobotContainer.intakeBelt1.set(Constants.SHOOTER.beltSpeed);
-      RobotContainer.intakeBelt2.set(-Constants.SHOOTER.beltSpeed);
+    RobotContainer.intakeBelt1.set(-Constants.SHOOTER.revBeltSpeed);
+      RobotContainer.intakeBelt2.set(Constants.SHOOTER.revBeltSpeed);
   }
   public void StopShooting(){
     RobotContainer.intakeBelt1.set(0);

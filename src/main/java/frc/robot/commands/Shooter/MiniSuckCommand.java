@@ -27,7 +27,6 @@ public class MiniSuckCommand extends Command {
   @Override
   public void initialize() {
     m_subsystem.miniSuck();
-    timer.restart();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -46,6 +45,6 @@ public class MiniSuckCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return time > .2;
+    return false;
   }
 }

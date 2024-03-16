@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Auto extends SubsystemBase {
-  public static PIDController encRightController;
+  /*public static PIDController encRightController;
   public static PIDController encLeftController;
   TalonSRX right;
   TalonSRX left;
@@ -77,6 +77,6 @@ public class Auto extends SubsystemBase {
 
   @Override
   public void simulationPeriodic() {
-    
+  }*/
   }
-}
+

@@ -22,10 +22,8 @@ public class DriveCommand extends Command {
 
   @Override
   public void execute() {
-    double throttle = (1.0 - RobotContainer.joy1.getThrottle()) / -2.0;
-
-    DriveSubsystem.arcadeDrive(ControlMode.PercentOutput, RobotContainer.joy1.getY() * throttle,
-        RobotContainer.joy1.getX() * throttle);
+    
+    DriveSubsystem.arcadeDrive(ControlMode.PercentOutput, RobotContainer.joy1.getY() , RobotContainer.joy1.getX() );
   }
 
   @Override

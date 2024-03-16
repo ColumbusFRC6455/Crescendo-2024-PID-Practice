@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.commands.Intake.IntakeCommand;
 import frc.robot.commands.Shooter.MiniSuckCommand;
 import frc.robot.commands.Shooter.ShooterCommand;
+import frc.robot.commands.Shooter.Shoot2;
 import frc.robot.subsystems.Arm.ArmSubsystem;
 import frc.robot.subsystems.Intake.IntakeSubsystem;
 import frc.robot.subsystems.Shooter.ShooterSubsystem;
@@ -63,17 +64,20 @@ public class RobotContainer {
 
   ShooterCommand ShooterCommand1 = new ShooterCommand(ShooterSys, Constants.SHOOTER.shootSpeed1);
   ShooterCommand ShooterCommand2 = new ShooterCommand(ShooterSys, Constants.SHOOTER.shootSpeed2);
+  Shoot2 ShootCommand3 = new Shoot2(ShooterSys);
   IntakeCommand IntakeCommand = new IntakeCommand(IntakeSys);
   MiniSuckCommand miniSuckCommand = new MiniSuckCommand(ShooterSys);
 
   public RobotContainer() {
     configureBindings();
     JoystickButton intakeButton = new JoystickButton(joy2, 11);
-    JoystickButton ShooterButton1 = new JoystickButton(joy2, 2);
-    JoystickButton ShooterButton2 = new JoystickButton(joy2, 3);
-    JoystickButton miniSuckButton = new JoystickButton(joy2, 4);
+    JoystickButton ShootButton3 = new JoystickButton(joy2, 7);
+    JoystickButton ShooterButton1 = new JoystickButton(joy2, 9);
+    JoystickButton ShooterButton2 = new JoystickButton(joy2, 10);
+    JoystickButton miniSuckButton = new JoystickButton(joy2, 12);
     intakeButton.whileTrue(IntakeCommand);
     miniSuckButton.whileTrue(miniSuckCommand);
+    ShootButton3.onTrue(ShootCommand3);
     ShooterButton1.onTrue(ShooterCommand1);
     ShooterButton2.onTrue(ShooterCommand2);
   }
