@@ -8,12 +8,10 @@ import frc.robot.subsystems.Intake.IntakeSubsystem;
 public class IntakeCommand extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private IntakeSubsystem m_subsystem;
-  private Timer timer;
   private double time = Timer.getFPGATimestamp();
   public IntakeCommand(IntakeSubsystem subsystem) {
     m_subsystem = subsystem;
     
-    timer = new Timer();
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_subsystem);
   }

@@ -24,6 +24,12 @@ public final class Constants {
     public static final int rightMotor1 = 3;
   }
 
+  public static class DRIVE_BACK_TIME {
+    public static final double driveBack = 0.5;
+    
+  }
+
+
   public static class INTAKE_MOTORS {
     public static final int intakeBelt0 = 4;
     public static final int intakeBelt1 = 5;

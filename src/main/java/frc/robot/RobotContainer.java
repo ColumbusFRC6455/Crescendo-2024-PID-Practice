@@ -12,6 +12,7 @@ import frc.robot.commands.Shooter.ShooterCommandStop;
 import frc.robot.commands.Shooter.ShooterCommandStop;
 import frc.robot.subsystems.Arm.ArmSubsystem;
 import frc.robot.subsystems.Auto.Auto;
+import frc.robot.subsystems.Drive.DriveSubsystem;
 import frc.robot.subsystems.Intake.IntakeSubsystem;
 import frc.robot.subsystems.Shooter.ShooterSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -19,6 +20,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Arm.ArmCommands;
 import frc.robot.commands.AutoCommand.AutoCommand;
+import frc.robot.commands.Drive.DriveBackCommand;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.revrobotics.CANSparkMax;
@@ -36,6 +38,7 @@ public class RobotContainer {
   private IntakeSubsystem IntakeSys = new IntakeSubsystem();
   private static ShooterSubsystem ShooterSys = new ShooterSubsystem();
   private Auto autoSys = new Auto();
+  private DriveSubsystem driveSubsys = new DriveSubsystem();
 
   public final static WPI_TalonSRX leftMotor0 = new WPI_TalonSRX(Constants.DRIVE_MOTORS.leftMotor0);
   public final static WPI_TalonSRX leftMotor1 = new WPI_TalonSRX(Constants.DRIVE_MOTORS.leftMotor1);
@@ -68,7 +71,7 @@ public class RobotContainer {
   ShooterCommandStop ShootCommand3 = new ShooterCommandStop(ShooterSys);
   IntakeCommand IntakeCommand = new IntakeCommand(IntakeSys);
   MiniSuckCommand miniSuckCommand = new MiniSuckCommand(ShooterSys);
-  AutoCommand moveBackShoot = new AutoCommand(autoSys, -21);
+  DriveBackCommand driveBackCommand = new DriveBackCommand(driveSubsys, Constants.DRIVE_BACK_TIME.driveBack);
 
   public RobotContainer() {
     leftMotor0.follow(leftMotor1);
@@ -79,14 +82,14 @@ public class RobotContainer {
     JoystickButton ShooterButton1 = new JoystickButton(joy2, 4);
     JoystickButton ShooterButton2 = new JoystickButton(joy2, 3);
     JoystickButton StopShoot = new JoystickButton(joy2, 6);
-    JoystickButton testEnc = new JoystickButton(joy2, 9);
+    JoystickButton driveBack = new JoystickButton(joy2, 9);
     
     intakeButton.whileTrue(IntakeCommand);
     miniSuckButton.whileTrue(miniSuckCommand);
     ShooterButton1.onTrue(ShooterCommand1);
     ShooterButton2.onTrue(ShooterCommand2);
     StopShoot.onTrue(ShootCommand3);
-    testEnc.whileTrue(moveBackShoot);
+    driveBack.onTrue(driveBackCommand);
   }
 
   private void configureBindings() {
