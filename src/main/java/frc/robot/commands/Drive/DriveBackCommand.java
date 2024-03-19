@@ -11,20 +11,21 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class DriveBackCommand extends Command {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private final DriveSubsystem m_subsystem;
-  private double time = Timer.getFPGATimestamp();
-  private double x;
+  private Timer Time; 
 
-  public DriveBackCommand(DriveSubsystem subsystem, double x) {
+
+  public DriveBackCommand(DriveSubsystem subsystem) {
     m_subsystem = subsystem;
-    
+    Time = RobotContainer.Time;
     addRequirements(m_subsystem);
   }
 
   @Override
   public void initialize() {
+    Time.reset();
+    Time.start();
     
-    m_subsystem.driveBackSec(x);
-    m_subsystem.printTime();
+    
   }
 
   @Override
@@ -35,7 +36,7 @@ public class DriveBackCommand extends Command {
 
   @Override
   public void end(boolean interrupted) {
-    m_subsystem.driveBackStop(x);
+    m_subsystem.driveBackStop();
   }
 
   @Override

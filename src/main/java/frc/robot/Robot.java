@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -31,6 +32,8 @@ public class Robot extends TimedRobot {
   private ShooterSubsystem ShooterSys =new ShooterSubsystem();
   private Auto auto = new Auto();
   private IntakeSubsystem intakeSys = new IntakeSubsystem();
+  Timer moveTimer = new Timer();
+  public static boolean autoMove = false; 
   //SendableChooser autoChooser = new SendableChooser<>();
   @Override
   
@@ -99,9 +102,22 @@ SmartDashboard.putNumber("voltage", RobotContainer.leftMotor0.getStatorCurrent()
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    SmartDashboard.putNumber("voltage", RobotContainer.leftMotor0.getStatorCurrent());
-    SmartDashboard.putNumber("rightEncoder", RobotContainer.EncRight.getDistance());
-    SmartDashboard.putNumber("leftEncoder", RobotContainer.EncLeft.getDistance());
+    if (RobotContainer.joy2.getRawButtonPressed(9)){
+      moveTimer.restart();
+      RobotContainer.leftMotor1.set(0.5);
+      RobotContainer.rightMotor1.set(-0.5);
+      autoMove = true;
+    } 
+    if (autoMove){
+     if (moveTimer.get() > 0 && moveTimer.hasElapsed(5)){
+      RobotContainer.leftMotor1.set(0.5);
+      RobotContainer.rightMotor1.set(-0.5);
+    }else if (moveTimer.hasElapsed(5)){
+      RobotContainer.leftMotor1.set(0);
+      RobotContainer.rightMotor1.set(0);
+      autoMove = false;
+    }
+  }
   }
 
   @Override

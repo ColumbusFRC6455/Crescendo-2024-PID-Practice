@@ -1,5 +1,6 @@
 package frc.robot.commands.Drive;
 
+import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive.DriveSubsystem;
 
@@ -22,8 +23,9 @@ public class DriveCommand extends Command {
 
   @Override
   public void execute() {
-    
+    if (Robot.autoMove == false){
     DriveSubsystem.arcadeDrive(ControlMode.PercentOutput, RobotContainer.joy1.getY() , RobotContainer.joy1.getX() );
+    }
   }
 
   @Override

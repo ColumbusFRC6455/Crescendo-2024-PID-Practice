@@ -26,21 +26,16 @@ public class DriveSubsystem extends SubsystemBase {
     RobotContainer.drive.arcadeDrive(x, -y);
   }
 
-  public void driveBackSec(double x) {
-    
-    if (x > time){
+  public void driveBackSec() {
     RobotContainer.leftMotor1.set(.25);
     RobotContainer.rightMotor1.set(.25);
-    }
-    
+  
   }
 
-  public void driveBackStop(double x) {
-    if (x > time){
+  public void driveBackStop() {
     RobotContainer.leftMotor1.set(0);
     RobotContainer.rightMotor1.set(0);
-    time = 0;
-    }
+    
   }
 
 public void printTime() {
